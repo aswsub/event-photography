@@ -5,12 +5,12 @@
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Jane Doe | Photography</title>
+		<title>Alex Mercer | Event & Dance Photography</title>
 	</head>
 	<body>
 		<header>
 			<nav>
-				<div class="logo">Jane Doe Photography</div>
+				<div class="logo">Alex Mercer</div>
 				<ul class="nav-links">
 					<li><a href="/">Home</a></li>
 					<li><a href="#portfolio">Portfolio</a></li>
@@ -22,16 +22,17 @@
 			<slot />
 		</main>
 		<footer>
-			<p>&copy; {new Date().getFullYear()} Jane Doe Photography. All rights reserved.</p>
+			<p>&copy; {new Date().getFullYear()} Alex Mercer Photography. All rights reserved.</p>
 		</footer>
 	</body>
 </html>
 
 <style is:global>
 	:root {
-		--bg-color: #fafafa;
-		--text-color: #222;
-		--accent-color: #555;
+		--bg-color: #0a0a0a;
+		--text-color: #f5f5f5;
+		--accent-color: #ff3366; /* Vibrant accent for event/dance vibe */
+		--border-color: #222;
 	}
 
 	html,
@@ -40,17 +41,23 @@
 		padding: 0;
 		width: 100%;
 		height: 100%;
-		font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 		background-color: var(--bg-color);
 		color: var(--text-color);
 		display: flex;
 		flex-direction: column;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
 	}
 
 	header {
 		padding: 2rem 5%;
-		background-color: #fff;
-		border-bottom: 1px solid #eaeaea;
+		background-color: rgba(10, 10, 10, 0.9);
+		border-bottom: 1px solid var(--border-color);
+		position: sticky;
+		top: 0;
+		z-index: 100;
+		backdrop-filter: blur(10px);
 	}
 
 	nav {
@@ -62,9 +69,9 @@
 	}
 
 	.logo {
-		font-size: 1.5rem;
-		font-weight: 300;
-		letter-spacing: 2px;
+		font-size: 1.6rem;
+		font-weight: 700;
+		letter-spacing: 3px;
 		text-transform: uppercase;
 	}
 
@@ -101,11 +108,12 @@
 
 	footer {
 		text-align: center;
-		padding: 2rem;
-		font-size: 0.8rem;
-		color: #777;
-		background-color: #fff;
-		border-top: 1px solid #eaeaea;
+		padding: 3rem 2rem;
+		font-size: 0.9rem;
+		color: #888;
+		background-color: var(--bg-color);
+		border-top: 1px solid var(--border-color);
+		letter-spacing: 1px;
 	}
 
 	/* Reset some default styling for slot elements */
