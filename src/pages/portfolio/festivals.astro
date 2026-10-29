@@ -1,0 +1,59 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Gallery from '../../components/Gallery.astro';
+
+const photos = [
+  { id: 1, url: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80', alt: 'Concert Crowd' },
+  { id: 2, url: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80', alt: 'Live Event Lights' },
+  { id: 3, url: 'https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?w=800&q=80', alt: 'Festival Stage' },
+  { id: 4, url: 'https://images.unsplash.com/photo-1508214751196-bfdd4ca4ccaa?w=800&q=80', alt: 'DJ Setup' },
+  { id: 5, url: 'https://images.unsplash.com/photo-1470229722913-7c092db62220?w=800&q=80', alt: 'Music Festival' },
+  { id: 6, url: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=800&q=80', alt: 'Concert Fans' },
+];
+---
+
+<Layout>
+  <div class="page-header">
+    <h1>Festivals & Concerts</h1>
+    <p>Capturing the massive energy and unforgettable moments of live music events.</p>
+  </div>
+
+  <Gallery photos={photos} />
+
+  <div class="back-link">
+    <a href="/">&larr; Back to Home</a>
+  </div>
+</Layout>
+
+<style>
+  .page-header {
+    text-align: center;
+    padding: 4rem 0 2rem;
+  }
+  .page-header h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+  .page-header p {
+    color: #aaa;
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .back-link {
+    text-align: center;
+    margin: 3rem 0;
+  }
+  .back-link a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+  }
+  .back-link a:hover {
+    color: #fff;
+  }
+</style>

@@ -1,0 +1,59 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Gallery from '../../components/Gallery.astro';
+
+const photos = [
+  { id: 1, url: 'https://images.unsplash.com/photo-1547153760-18fc86324498?w=800&q=80', alt: 'Dance Performance' },
+  { id: 2, url: 'https://images.unsplash.com/photo-1533174000243-781b0a50fdd4?w=800&q=80', alt: 'Urban Dance' },
+  { id: 3, url: 'https://images.unsplash.com/photo-1508700929628-666bc8bd84ea?w=800&q=80', alt: 'Ballet Dancer' },
+  { id: 4, url: 'https://images.unsplash.com/photo-1518834107812-67b0b7c58434?w=800&q=80', alt: 'Contemporary Dance' },
+  { id: 5, url: 'https://images.unsplash.com/photo-1502318217862-aa4e294ba657?w=800&q=80', alt: 'Breakdance' },
+  { id: 6, url: 'https://images.unsplash.com/photo-1541364983171-a8ba01e9d776?w=800&q=80', alt: 'Dance Studio' },
+];
+---
+
+<Layout>
+  <div class="page-header">
+    <h1>Dance & Performance</h1>
+    <p>Dynamic movement, raw emotion, and artistic expression frozen in time.</p>
+  </div>
+
+  <Gallery photos={photos} />
+
+  <div class="back-link">
+    <a href="/">&larr; Back to Home</a>
+  </div>
+</Layout>
+
+<style>
+  .page-header {
+    text-align: center;
+    padding: 4rem 0 2rem;
+  }
+  .page-header h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+  .page-header p {
+    color: #aaa;
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .back-link {
+    text-align: center;
+    margin: 3rem 0;
+  }
+  .back-link a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+  }
+  .back-link a:hover {
+    color: #fff;
+  }
+</style>

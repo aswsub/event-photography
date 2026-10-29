@@ -1,19 +1,16 @@
 ---
-// Using Unsplash placeholders for a more dynamic event/concert/dance feel
-const photos = [
-  { id: 1, url: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800&q=80', alt: 'Concert Crowd' },
-  { id: 2, url: 'https://images.unsplash.com/photo-1547153760-18fc86324498?w=800&q=80', alt: 'Dance Performance' },
-  { id: 3, url: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=800&q=80', alt: 'Live Event Lights' },
-  { id: 4, url: 'https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?w=800&q=80', alt: 'Festival Stage' },
-  { id: 5, url: 'https://images.unsplash.com/photo-1508214751196-bfdd4ca4ccaa?w=800&q=80', alt: 'DJ Setup' },
-  { id: 6, url: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80', alt: 'Nightlife Vibe' },
-  { id: 7, url: 'https://images.unsplash.com/photo-1470229722913-7c092db62220?w=800&q=80', alt: 'Music Festival' },
-  { id: 8, url: 'https://images.unsplash.com/photo-1533174000243-781b0a50fdd4?w=800&q=80', alt: 'Urban Dance' },
-  { id: 9, url: 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=800&q=80', alt: 'Event Celebration' },
-];
+export interface Props {
+  photos: {
+    id: number;
+    url: string;
+    alt: string;
+  }[];
+}
+
+const { photos } = Astro.props;
 ---
 
-<section id="portfolio" class="gallery">
+<section class="gallery">
   {photos.map((photo) => (
     <div class="gallery-item">
       <img src={photo.url} alt={photo.alt} loading="lazy" />
