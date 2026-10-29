@@ -22,65 +22,83 @@ const portfolios = [
 
 <Layout>
 	<section class="hero">
-		<h1>Capturing the energy of the moment</h1>
-		<p>Professional Event & Dance Photography. High-energy, dynamic, and unforgettable visuals for your next big event.</p>
+		<div class="container">
+			<h1>Capturing the energy of the moment</h1>
+			<div class="hero-rule"></div>
+			<p>Professional Event & Dance Photography. High-energy, dynamic, and unforgettable visuals for your next big event.</p>
+		</div>
 	</section>
 
 	<section id="galleries" class="portfolios">
-		<h2>Featured Portfolios</h2>
-		<div class="portfolio-grid">
-			{portfolios.map((portfolio) => (
-				<a href={portfolio.link} class="portfolio-card">
-					<img src={portfolio.image} alt={portfolio.title} loading="lazy" />
-					<div class="card-overlay">
+		<div class="container">
+			<h2>Featured Portfolios</h2>
+			<div class="portfolio-grid">
+				{portfolios.map((portfolio) => (
+					<a href={portfolio.link} class="portfolio-card">
+						<div class="card-image-wrapper">
+							<img src={portfolio.image} alt={portfolio.title} loading="lazy" />
+						</div>
 						<h3>{portfolio.title}</h3>
-					</div>
-				</a>
-			))}
+					</a>
+				))}
+			</div>
 		</div>
 	</section>
 
 	<section id="contact" class="contact">
-		<h2>Ready to create something amazing?</h2>
-		<p>Book me for your next festival, dance performance, or private event.</p>
-		<a href="mailto:booking@alexmercerphoto.com" class="btn">Book Now</a>
+		<div class="container">
+			<h2>Ready to create something amazing?</h2>
+			<p>Book me for your next festival, dance performance, or private event.</p>
+			<a href="mailto:booking@alexmercerphoto.com" class="btn">Book Now</a>
+		</div>
 	</section>
 </Layout>
 
 <style>
+	.container {
+		max-width: var(--container-max);
+		margin: 0 auto;
+		padding: 0 5%;
+	}
+
 	.hero {
-		text-align: center;
-		padding: 6rem 0 4rem;
+		background-color: var(--canvas-warm);
+		padding: var(--spacing-section) 0;
+		text-align: left;
 	}
 
 	.hero h1 {
-		font-size: 4rem;
-		font-weight: 800;
-		margin-bottom: 1.5rem;
-		letter-spacing: -1.5px;
-		line-height: 1.1;
-		background: -webkit-linear-gradient(45deg, #fff, #888);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
+		font-size: 40px; /* display-sans-lg */
+		font-weight: 300;
+		line-height: 1.2;
+		max-width: 800px;
+		margin-bottom: 24px;
+	}
+
+	.hero-rule {
+		width: 40px;
+		height: 4px;
+		background-color: var(--accent-gold);
+		margin-bottom: 24px;
 	}
 
 	.hero p {
-		font-size: 1.25rem;
-		color: #aaa;
-		max-width: 650px;
-		margin: 0 auto;
-		line-height: 1.7;
+		font-size: 24px; /* lead */
+		font-weight: 400;
+		line-height: 1.4;
+		max-width: 800px;
+		margin: 0;
 	}
 
 	.portfolios {
-		padding: 4rem 0;
+		background-color: var(--canvas-soft);
+		padding: var(--spacing-section) 0;
 	}
 
 	.portfolios h2 {
-		text-align: center;
-		font-size: 2.5rem;
-		margin-bottom: 3rem;
-		font-weight: 700;
+		font-size: 24px; /* heading-lg */
+		font-weight: 800;
+		margin-bottom: 32px;
 	}
 
 	.portfolio-grid {
@@ -91,83 +109,72 @@ const portfolios = [
 
 	.portfolio-card {
 		display: block;
-		position: relative;
-		border-radius: 8px;
-		overflow: hidden;
-		aspect-ratio: 4 / 3;
 		text-decoration: none;
-		box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+		background-color: var(--canvas);
+		border: 1px solid var(--hairline);
+		border-radius: var(--rounded-md);
+		padding: 20px; /* spacing-xl ish */
+		transition: background-color 0.2s ease;
 	}
 
-	.portfolio-card img {
+	.portfolio-card:hover {
+		background-color: var(--canvas-soft);
+	}
+
+	.card-image-wrapper {
+		width: 100%;
+		aspect-ratio: 4 / 3;
+		border-radius: var(--rounded-md);
+		overflow: hidden;
+		margin-bottom: 16px;
+	}
+
+	.card-image-wrapper img {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
-		transition: transform 0.5s ease;
+		display: block;
 	}
 
-	.portfolio-card:hover img {
-		transform: scale(1.05);
-	}
-
-	.card-overlay {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 100%;
-		background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-		padding: 2rem 1.5rem 1.5rem;
-		color: #fff;
-	}
-
-	.card-overlay h3 {
+	.portfolio-card h3 {
 		margin: 0;
-		font-size: 1.5rem;
-		font-weight: 700;
-		letter-spacing: 1px;
-		transition: color 0.3s;
-	}
-
-	.portfolio-card:hover .card-overlay h3 {
-		color: var(--accent-color);
+		font-size: 18px; /* heading-sm */
+		font-weight: 800;
+		color: var(--ink);
 	}
 
 	.contact {
-		text-align: center;
-		padding: 5rem 0;
-		margin-top: 3rem;
-		border-top: 1px solid var(--border-color);
+		background-color: var(--canvas-tint);
+		padding: var(--spacing-section) 0;
+		text-align: left;
 	}
 
 	.contact h2 {
-		font-size: 2.5rem;
-		font-weight: 700;
-		margin-bottom: 1rem;
-		letter-spacing: -0.5px;
+		font-size: 24px; /* heading-lg */
+		font-weight: 800;
+		margin-bottom: 16px;
 	}
 
 	.contact p {
-		color: #aaa;
-		margin-bottom: 2.5rem;
-		font-size: 1.1rem;
+		font-size: 16px;
+		font-weight: 400;
+		color: var(--ink);
+		margin-bottom: 24px;
 	}
 
 	.btn {
 		display: inline-block;
-		padding: 1rem 2.5rem;
-		background-color: var(--accent-color);
-		color: #fff;
+		padding: 10px 16px;
+		background-color: var(--primary);
+		color: var(--on-primary);
 		text-decoration: none;
-		text-transform: uppercase;
-		letter-spacing: 2px;
-		font-weight: 600;
-		font-size: 0.9rem;
-		border-radius: 4px;
-		transition: transform 0.3s ease, box-shadow 0.3s ease;
+		font-weight: 500; /* label */
+		font-size: 14px;
+		border-radius: var(--rounded-xs);
+		transition: background-color 0.2s ease;
 	}
 
 	.btn:hover {
-		transform: translateY(-2px);
-		box-shadow: 0 10px 20px rgba(255, 51, 102, 0.3);
+		background-color: var(--primary-pressed);
 	}
 </style>

@@ -13,47 +13,84 @@ const photos = [
 ---
 
 <Layout>
-  <div class="page-header">
-    <h1>Dance & Performance</h1>
-    <p>Dynamic movement, raw emotion, and artistic expression frozen in time.</p>
-  </div>
+  <section class="hero">
+    <div class="container">
+      <h1>Dance & Performance</h1>
+      <div class="hero-rule"></div>
+      <p>Dynamic movement, raw emotion, and artistic expression frozen in time.</p>
+    </div>
+  </section>
 
-  <Gallery photos={photos} />
+  <section class="gallery-section">
+    <div class="container">
+      <Gallery photos={photos} />
 
-  <div class="back-link">
-    <a href="/">&larr; Back to Home</a>
-  </div>
+      <div class="back-link">
+        <a href="/" class="btn btn-secondary">Back to Home</a>
+      </div>
+    </div>
+  </section>
 </Layout>
 
 <style>
-  .page-header {
-    text-align: center;
-    padding: 4rem 0 2rem;
-  }
-  .page-header h1 {
-    font-size: 3rem;
-    font-weight: 800;
-    margin-bottom: 1rem;
-  }
-  .page-header p {
-    color: #aaa;
-    font-size: 1.2rem;
-    max-width: 600px;
+  .container {
+    max-width: var(--container-max);
     margin: 0 auto;
+    padding: 0 5%;
   }
+
+  .hero {
+    background-color: var(--canvas-warm);
+    padding: var(--spacing-section) 0;
+  }
+
+  .hero h1 {
+    font-family: 'Georgia', serif;
+    font-size: 56px; /* display-serif-xl */
+    font-weight: 400;
+    margin-bottom: 24px;
+    line-height: 1.2;
+  }
+
+  .hero-rule {
+    width: 40px;
+    height: 4px;
+    background-color: var(--accent-gold);
+    margin-bottom: 24px;
+  }
+
+  .hero p {
+    font-size: 24px; /* lead */
+    font-weight: 400;
+    line-height: 1.4;
+    max-width: 800px;
+    margin: 0;
+  }
+
+  .gallery-section {
+    background-color: var(--canvas);
+    padding: var(--spacing-section) 0;
+  }
+
   .back-link {
-    text-align: center;
-    margin: 3rem 0;
+    margin-top: 48px;
+    text-align: left;
   }
-  .back-link a {
-    color: var(--accent-color);
+
+  .btn-secondary {
+    display: inline-block;
+    padding: 10px 16px;
+    background-color: transparent;
+    color: var(--ink);
+    border: 1px solid var(--ink);
+    border-radius: var(--rounded-xs);
+    font-weight: 500;
+    font-size: 14px;
     text-decoration: none;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: color 0.3s;
+    transition: background-color 0.2s ease;
   }
-  .back-link a:hover {
-    color: #fff;
+
+  .btn-secondary:hover {
+    background-color: rgba(0,0,0,0.05);
   }
 </style>
